@@ -23,7 +23,7 @@ Features:
      --volume /tmp/platform:/root/deploy:z \
      --volume /tmp/platform/secrets/docker/quay.json:/root/.docker/config.json:ro \
   docker.io/containercraft/koffer:latest \
-  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/operatorhub.git master
+  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/collector-operators.git latest
 ```
 ### 2. Move Koffer Bundle to restricted environment target host `/tmp` directory
 ### 3. Extract to docker registry path
