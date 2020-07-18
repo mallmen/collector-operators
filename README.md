@@ -18,19 +18,19 @@ Features:
 ## Instructions:
 ### 1. Run Koffer Engine
 ```
- sudo podman run -it --rm \
+ sudo podman run -it --rm --device /dev/fuse \
      --entrypoint=/usr/bin/entrypoint \
      --volume /tmp/platform:/root/deploy:z \
-     --volume /tmp/platform/secrets/docker/quay.json:/root/.docker/config.json:ro \
-  docker.io/containercraft/koffer:latest \
-  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/collector-operators.git latest
+  docker.io/containercraft/koffer:nightlies \
+  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/collector-operators.git master
 ```
 ### 2. Move Koffer Bundle to restricted environment target host `/tmp` directory
 ### 3. Extract to docker registry path
 ```
- tar xv -f /tmp/koffer-bundle.redhat-operators.tar -C /root/deploy/mirror
+ tar xv -f /tmp/koffer-bundle.collector-operators.tar -C /root/deploy
 ```
-### 4. Start or Restart your docker registry container
-# [Developer Docs & Utils](./dev)
+### 4. Apply operator catalog configs with contents of `mirror/config/operators`
+## [Developer Docs & Utils](./dev)
+## [Supported Offline Operators List](https://access.redhat.com/articles/4740011)
 # Demo
 ![bundle](./web/bundle.svg)
